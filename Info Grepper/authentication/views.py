@@ -15,6 +15,26 @@ def signup(request):
         password=request.POST.get('psw')
         password1=request.POST.get('psw1')
         
+        if User.objects.filter(username=username):
+            messages.error(request, "Username already exist! Please try some other username.")
+            return redirect('home')
+        
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Email Already Registered!!")
+            return redirect('home')
+        
+        if len(username)>20:
+            messages.error(request, "Username must be under 20 charcters!!")
+            return redirect('home')
+        
+        if password != password1:
+            messages.error(request, "Passwords didn't matched!!")
+            return redirect('home')
+        
+        if not username.isalnum():
+            messages.error(request, "Username must be Alpha-Numeric!!")
+            return redirect('home')
+
         myuser=User.objects.create_user(username,email,password)
         myuser.save()
         messages.success(request,"you are successfully registered.")
