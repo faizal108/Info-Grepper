@@ -1,0 +1,14 @@
+how to run:
+python manage.py runserver
+
+program flow:
+info grepper -> urls.py -> (authentication) urls.py -> views.py : functions are executed according to url called
+templates/authentication -> all auth. front-end files
+
+work completed till now: 
+1)home page,sign in ,sign up page
+2)database in sign up
+3)fixed log in,sign up,sign out actions
+4)database in login
+5)validations
+6)login authentication and redirection
