@@ -9,3 +9,12 @@ Info grepper is a toolkit containing 8 carefully curated tools to be used for Re
   <h3>Krish Patel : https://github.com/krishpatel2383</h3></pre>
   </p>
 </details>
+
+<details>
+  <summary>Task</summary>
+  <ul>
+  <li>Home Page</li>
+  <li>Tools Page</li>
+  <li>About Page</li>
+  </ul<
+</details>
