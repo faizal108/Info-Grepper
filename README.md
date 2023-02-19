@@ -11,10 +11,13 @@ Info grepper is a toolkit containing 8 carefully curated tools to be used for Re
 </details>
 
 <details>
-  <summary>Task</summary>
+  <summary>UI Components</summary>
   <ul>
   <li>Home Page</li>
   <li>Tools Page</li>
   <li>About Page</li>
+  <li>Profile Page</li>
+  <li>Login and SignUp</li>
+  <li>Tool running interface</li>
   </ul<
 </details>
