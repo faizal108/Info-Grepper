@@ -1,0 +1,88 @@
+:root {
+  --primary-color: #335eea;
+  --link-color: #506690;
+  --btn-hover-color: #2b50c7;
+  --lg-heading: #161c2d;
+  --text-content: #869ab8;
+  --fixed-header-height: 4.5rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.left-col img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.right-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.right-col h1 {
+  font-size: 2rem;
+  color: var(--lg-heading);
+  margin-bottom: 1rem;
+}
+
+.right-col p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-content);
+}
+
+.right-col form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-col form input[type="email"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+}
+
+.right-col form button[type="submit"] {
+  padding: 0.75rem 2rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.right-col form button[type="submit"]:hover {
+  background-color: var(--btn-hover-color);
+}
