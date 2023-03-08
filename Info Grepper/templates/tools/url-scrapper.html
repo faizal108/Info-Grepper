@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h3>Web Url Scrapper</h3>
+        <p>
+            A web URL scraper tool is a software application designed to extract website URLs from web pages.
+            This tool is useful for digital marketers, SEO specialists, and researchers to gather data on the internet for various purposes.
+            The URL scraper typically works by scanning web pages for links, extracting the URLs, and then compiling them into a list.
+            These tools can be useful for building backlink profiles, conducting competitive research, and analyzing website traffic. 
+        </p>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="num1"><br><br>
+            <input type="Submit">
+        </form>
+        {% comment %} displaying result {% endcomment %}
+        {% comment %} error: conditions are not getting executed.{% endcomment %}
+        {% if result is None %}
+            <p>run it</p>
+        {% else %}
+            <p>{{result}}</p>
+        {% endif %}
+
+    </body>
+</html>
