@@ -8,8 +8,8 @@
   <title>Responsive Landing Page using HTML, CSS & Javascript</title>
 
   <!-- ==== STYLE.CSS ==== -->
-  <link rel="stylesheet" href="./assets/style/landing.css" />
-  <link rel="stylesheet" href="./assets/style/tools.css" />
+  <link rel="stylesheet" href="/static/style/landing.css" />
+  <link rel="stylesheet" href="/static/style/tools.css" />
 
   <!-- ====  REMIXICON CDN ==== -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
@@ -37,7 +37,7 @@
             <a href="#" class="nav_menu_link">home</a>
           </li>
           <li class="nav_menu_item">
-            <a href="./assets/pages/tools.html" class="nav_menu_link">tools</a>
+            <a href="/tools" class="nav_menu_link">tools</a>
           </li>
           <li class="nav_menu_item">
             <a href="#" class="nav_menu_link">about</a>
@@ -71,16 +71,23 @@
           </p>
 
           <div class="btn_wrapper">
-            <button class="btn view_more_btn" onclick="window.location.href = 'assets/pages/tools.html';">
+            <a href="/tools">
+            <button class="btn view_more_btn">
               view all tools <i class="ri-arrow-right-line"></i>
             </button>
-
+            </a>
             <button class="btn documentation_btn">documentation</button>
           </div>
+
+          <div class="grid-item-2">
+            <div class="team_img_wrapper">
+              <img src="/static/img/team.svg" alt="team-img" />
+            </div>
         </div>
         <div class="grid-item-2">
           <div class="team_img_wrapper">
-            <img src="./assets/img/team.svg" alt="team-img" />
+            <img src="/static/img/team.svg" alt="team-img" />
+
           </div>
         </div>
       </div>
@@ -234,9 +241,21 @@
   <!-- ==== GSAP CDN ==== -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script> -->
   <!-- ==== SCRIPT.JS ==== -->
-  <script src="./assets/script/landing.js" defer></script>
-  <script src="./assets/script/popup.js" defer></script>
+  <script src="/static/script/landing.js" defer></script>
+  <script src="/static/script/popup.js" defer></script>
   <!-- <script src="./assets/script/loader.js" defer></script> -->
 </body>
 
+    <footer></footer>
+
+    <!-- ==== ANIMATE ON SCROLL JS CDN -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ==== GSAP CDN ==== -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script> -->
+    <!-- ==== SCRIPT.JS ==== -->
+    <script src="/static/script/landing.js" defer></script>
+    <script src="/static/script/popup.js" defer></script>
+    <!-- <script src="./assets/script/loader.js" defer></script> -->
+  </body>
+</html>
 </html>

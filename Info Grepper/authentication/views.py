@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate,login,logout
 # def home(request):
 #     return render(request,"authentication/index.html")
 def home(request):
-    return render(request,"authentication/index.html")
+    return render(request,"authentication/index2.html")
 
 def signup(request):
     if(request.method=="POST"):
