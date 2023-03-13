@@ -1,0 +1,77 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+
+{% block style %}
+
+  <link rel="stylesheet" href="{% static 'style/tools.css' %}">
+
+{% endblock style %}
+
+{% block content %} 
+
+<div class="main-container">
+    <div class="heading">
+        <h1 class="heading_title">Info Grepper Toolkit</h1>
+        <p class="heading_credits">
+            <a class="heading_link">Streamline data gathering with our comprehensive suite of tools.</a>
+        </p>
+    </div>
+    <div class="cards">
+        <div class="card card-1">
+            <div class="card_icon">Tool 1</div>
+            <h2 class="card_title">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </h2>
+            <p class="card_apply">
+                <a class="card_link" href="{% url 'WebScrapper' %}">GO</a>
+            </p>
+        </div>
+        <div class="card card-2">
+            <div class="card_icon">Tool 2</div>
+            <h2 class="card_title">
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </h2>
+            <p class="card_apply">
+                <a class="card_link" href="#">GO</a>
+            </p>
+        </div>
+        <div class="card card-3">
+            <div class="card_icon">Tool 3</div>
+            <h2 class="card_title">Ut enim ad minim veniam.</h2>
+            <p class="card_apply">
+                <a class="card_link" href="#">GO</a>
+            </p>
+        </div>
+        <div class="card card-4">
+            <div class="card_icon">Tool 4</i></div>
+            <h2 class="card_title">
+                Quis nostrud exercitation ullamco laboris nisi.
+            </h2>
+            <p class="card_apply">
+                <a class="card_link" href="#">GO</a>
+            </p>
+        </div>
+        <div class="card card-5">
+            <div class="card_icon">Tool 5</div>
+            <h2 class="card_title">
+                Ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+            </h2>
+            <p class="card_apply">
+                <a class="card_link" href="#">GO</a>
+            </p>
+        </div>
+        <div class="card card-2">
+            <div class="card_icon">Tool 6</div>
+            <h2 class="card_title">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </h2>
+            <p class="card_apply">
+                <a class="card_link" href="#">GO</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+

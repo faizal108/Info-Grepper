@@ -1,0 +1,52 @@
+{% extends 'users/base.html' %} {% load static %} {% block style %}
+
+<link rel="stylesheet" href="{% static 'style/web_scrapper.css' %}" />
+
+{% endblock style %} {% block content %}
+
+<section>
+  <div class="tool-wrapper">
+    <div class="tool-details">
+      <h1>Web Scrapper</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatum
+        excepturi repudiandae vitae ducimus alias dicta, obcaecati a optio ipsa.
+      </p>
+    </div>
+    <form class="tool-inputs" method="POST">
+      {% csrf_token %}
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Web URL : www.example.com"
+        name="url_input"
+      />
+      <button type="submit">FIRE</button>
+    </form>
+    {% comment %} displaying result {% endcomment %} {% comment %} error:
+    conditions are not getting executed.{% endcomment %} 
+    {% if result is None %}
+    <p>run it</p>
+    {% else %}
+    
+    <table id="output-table">
+      <tr><th>Links</th></tr>
+      {% for item in result %}
+          <tr><td>{{ item }}</td></tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+  </div>
+
+  <!-- Output of tool -->
+  <div id="tool-output">
+    <h3>Result for : <a id="web-url"></a></h3>
+    <table id="output-table"></table>
+  </div>
+</section>
+
+{% endblock content %} {% block script %}
+
+<script src="{% static 'script/web_scrapper.js' %}"></script>
+
+{% endblock script %}
