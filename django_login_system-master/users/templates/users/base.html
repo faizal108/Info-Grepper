@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>base</title>
-    <link rel="stylesheet" href="{% static 'style/base.css' %}">
+    <link rel="stylesheet" href="{% static 'style/base.css' %}" />
     {% block style %} {% endblock style %}
+    <title>base</title>
   </head>
 
   <body>
@@ -26,30 +26,30 @@
 
           <ul class="nav_menu_list">
             <li class="nav_menu_item">
-              <a href="#" class="nav_menu_link">home</a>
+              <a href="{% url 'home' %}" class="nav_menu_link">home</a>
             </li>
             <li class="nav_menu_item">
-              <a href="{% url 'alltools' %}" class="nav_menu_link"
-                >tools</a
-              >
+              <a href="{% url 'alltools' %}" class="nav_menu_link">tools</a>
             </li>
             <li class="nav_menu_item">
               <a href="#" class="nav_menu_link">about</a>
             </li>
             <li class="nav_menu_item">
               {% if user.is_authenticated %}
-                <a class="nav_menu_link">
-                    <div class="profile">
-                        <div class="user_name"><span>{{ user.username }}</span></div>
-                        <div class="profile_img"><img src="{% static 'images/profile1.jpg' %}"></div>
-                    </div>
-                </a>
+              <a class="nav_menu_link">
+                <div class="profile">
+                  <div class="user_name"><span>{{ user.username }}</span></div>
+                  <div class="profile_img">
+                    <img src="{% static 'images/profile1.jpg' %}" />
+                  </div>
+                </div>
+              </a>
               {% else %}
-                <a href="{% url 'login' %}" class="nav_menu_link">
-                    <button class="btn login_btn">
-                    login<i class="ri-login-box-line"></i>
-                    </button>
-                </a>
+              <a href="{% url 'login' %}" class="nav_menu_link">
+                <button class="btn login_btn">
+                  login<i class="ri-login-box-line"></i>
+                </button>
+              </a>
               {% endif %}
             </li>
           </ul>

@@ -18,6 +18,10 @@
 section {
   width: 100%;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -63,8 +67,11 @@ button:hover {
 
 .tool-wrapper {
   width: 100%;
-  height: 50vh;
-  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .tool-details,
 .tool-inputs {
@@ -88,22 +95,29 @@ button:hover {
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
+  max-height: 50rem;
+  overflow: scroll;
   margin-top: 50px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
+}
+#tool-output::-webkit-scrollbar{
   display: none;
 }
-
-#output {
-  margin-bottom: 20px;
-  font-weight: bold;
-}
+/* .output {
+  border: 2px solid red;
+  width: 70%;
+  height: 50%;
+  overflow: scroll;
+} */
 
 #output-table {
-  margin-top: 1rem;
+  position: relative;
+  margin-top: 2rem;
+  padding: 2rem 1.3rem;
   border-collapse: collapse;
-  width: 100%;
+  width: inherit;
 }
 
 #output-table th,
@@ -111,12 +125,18 @@ button:hover {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #output-table th {
   background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
 }
-
+#output-table tr{
+  background-color: #cacacadc;
+}
 #output-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }

@@ -1,7 +1,7 @@
-{% extends 'users/base.html' %} {% load static %} {% block style %}
-
+{% extends 'users/base.html' %}
+{% load static %} 
+{% block style %}
 <link rel="stylesheet" href="{% static 'style/web_scrapper.css' %}" />
-
 {% endblock style %} {% block content %}
 
 <section>
@@ -23,30 +23,26 @@
       />
       <button type="submit">FIRE</button>
     </form>
-    {% comment %} displaying result {% endcomment %} {% comment %} error:
-    conditions are not getting executed.{% endcomment %} 
+
     {% if result is None %}
     <p>run it</p>
     {% else %}
-    
-    <table id="output-table">
-      <tr><th>Links</th></tr>
-      {% for item in result %}
-          <tr><td>{{ item }}</td></tr>
-      {% endfor %}
-    </table>
+      <div id="tool-output">
+        <table id="output-table">
+          <thead>
+            <tr>
+              <th>Links</th>
+            </tr>
+          </thead>
+          {% for item in result %}
+          <tr>
+            <td>{{ item }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
     {% endif %}
-  </div>
-
-  <!-- Output of tool -->
-  <div id="tool-output">
-    <h3>Result for : <a id="web-url"></a></h3>
-    <table id="output-table"></table>
   </div>
 </section>
 
-{% endblock content %} {% block script %}
-
-<script src="{% static 'script/web_scrapper.js' %}"></script>
-
-{% endblock script %}
+{% endblock content %}

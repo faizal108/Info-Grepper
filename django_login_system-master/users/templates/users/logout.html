@@ -1,12 +1,11 @@
-{% extends 'users/base.html' %}
-
-{% block content %}
-    <br>
-    <div class="alert alert-success" role="alert">
-        <h2 style="text-align: center;">Logged out!</h2>
-    </div>
-
-    <h3>Login again?</h3>
-    <a href="{% url 'login' %}">---> Login</a> <br>
-    <a href="{% url 'home' %}"><--- Or go back to home.</a>
+{% extends 'users/base.html' %} {% load static%} {% block style %}
+<link rel="stylesheet" href="{% static 'style/signup.css' %}" />
+{% endblock style %}
+ {% block content %}
+<section>
+  <div class="heading">
+    <h3 style="text-align: center">Logout Successfully!!</h3>
+  </div>
+  <a href="{% url 'home' %}"><button type="button">Go Back Home</button></a>
+</section>
 {% endblock content %}

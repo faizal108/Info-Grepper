@@ -1,7 +1,6 @@
 /* ==== "Inter" FONT-FAMILY FROM FONTS.GOOGLE.COM  ==== */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
-
 /* ==== ROOT RESET ==== */
 * {
   margin: 0;
@@ -252,7 +251,7 @@ button {
 footer {
   width: 100%;
   background-color: var(--primary-color);
-  height: 12px;
+  height: fit-content;
   margin-top: 8rem;
 }
 
@@ -377,33 +376,33 @@ footer {
 }
 
 .profile {
-    /* border: 2px solid red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: .4rem;
-    background-color: #e1e7fc;
-    padding: .2rem;
-    border-radius: 10px;
-    cursor: pointer;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.4rem;
+  background-color: #e1e7fc;
+  padding: 0.2rem;
+  border-radius: 10px;
+  cursor: pointer;
 }
-.profile .profile_img{
-    /* border: 2px solid red; */
+.profile .profile_img {
+  /* border: 2px solid red; */
 }
-.profile_img img{
-    display: flex;
-    align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    size: inherit;
-    border: 2px solid #335eea;
+.profile_img img {
+  display: flex;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  size: inherit;
+  border: 2px solid #335eea;
 }
 
-.profile .user_name{
-    /* border: 2px solid red; */
+.profile .user_name {
+  /* border: 2px solid red; */
 }
-.profile .user_name span{
-    color: #335eea;
-    font-weight: 500;
+.profile .user_name span {
+  color: #335eea;
+  font-weight: 500;
 }
