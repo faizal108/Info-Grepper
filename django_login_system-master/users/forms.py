@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import PasswordResetForm
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -16,3 +18,6 @@ class SignupForm(UserCreationForm):
     #     super(SignupForm,self).__init__(*args, **kwargs)
 
     #     self.fields['username'].widget.attrs['class'] = 'form-control'
+
+class CustomPasswordResetForm(PasswordResetForm):
+    email = forms.EmailField(label='Email', max_length=254)

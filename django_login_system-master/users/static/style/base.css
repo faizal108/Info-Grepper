@@ -60,6 +60,10 @@ button {
 .header {
   height: var(--fixed-header-height);
   padding: 0 1.7rem;
+  background-color: #ffffffeb;
+  border-radius: 0 0 20px 20px;
+  z-index: 1000;
+  
 }
 
 /* ==== NAV ==== */
@@ -413,3 +417,4 @@ footer {
 .profile-menu{
   
 }
+

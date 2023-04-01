@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dashboard">
+
+{% load static %}
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{% static 'style/dashboard.css' %}">
+     <link rel="stylesheet" href="{% static 'style/sidebar.css' %}">
+     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+     <title>Dashboard</title>
+
+</head>
+
+<body>
+     <!-- sidebar -->
+     <nav class="sidebar close">
+          <header>
+               <div class="image-text">
+                    <span class="image">
+                         <img src="../images/logo.png" alt="">
+                    </span>
+
+                    <div class="text logo-text">
+                         <span class="name">Codinglab</span>
+                         <span class="profession">Web developer</span>
+                    </div>
+               </div>
+
+               <i class='bx bx-chevron-right toggle'></i>
+          </header>
+
+          <div class="menu-bar">
+               <div class="menu">
+
+                    <li class="search-box">
+                         <i class='bx bx-search icon'></i>
+                         <input type="text" placeholder="Search...">
+                    </li>
+
+                    <ul class="menu-links">
+                         <li class="nav-link">
+                              <a href="./pages/dashboard.html">
+                                   <i class='bx bx-home-alt icon'></i>
+                                   <span class="text nav-text">Dashboard</span>
+                              </a>
+                         </li>
+
+                         <li class="nav-link">
+                              <a href="#">
+                                   <i class='bx bx-pie-chart-alt icon'></i>
+                                   <span class="text nav-text">Analytics</span>
+                              </a>
+                         </li>
+                         <hr>
+                         <li class="nav-link">
+                              <a href="#">
+                                   <i class='bx bx-bar-chart-alt-2 icon'></i>
+                                   <span class="text nav-text">Revenue</span>
+                              </a>
+                         </li>
+
+                         <li class="nav-link">
+                              <a href="#">
+                                   <i class='bx bx-bell icon'></i>
+                                   <span class="text nav-text">Notifications</span>
+                              </a>
+                         </li>
+
+
+                         <li class="nav-link">
+                              <a href="#">
+                                   <i class='bx bx-heart icon'></i>
+                                   <span class="text nav-text">Likes</span>
+                              </a>
+                         </li>
+                         <hr>
+                         <li class="nav-link">
+                              <a href="#">
+                                   <i class='bx bx-wallet icon'></i>
+                                   <span class="text nav-text">Wallets</span>
+                              </a>
+                         </li>
+
+                    </ul>
+               </div>
+
+               <div class="bottom-content">
+                    <li class="">
+                         <a href="#">
+                              <i class='bx bx-log-out icon'></i>
+                              <span class="text nav-text">Logout</span>
+                         </a>
+                    </li>
+
+                    <li class="mode">
+                         <div class="sun-moon">
+                              <i class='bx bx-moon icon moon'></i>
+                              <i class='bx bx-sun icon sun'></i>
+                         </div>
+                         <span class="mode-text text">Dark mode</span>
+
+                         <div class="toggle-switch">
+                              <span class="switch"></span>
+                         </div>
+                    </li>
+               </div>
+          </div>
+     </nav>
+
+     <section class="home">
+          <!-- ------------Dashboard------------- -->
+          <div class="center-container">
+               <div class="top-container">
+                    <div class="dashboard-header">
+                         <h1><span class="greeting">Good Morning </span><span class="user-name">{{ user.username }}</span></h1>
+                         <h4>Here you can manage your account and resources</h4>
+                    </div>
+                    <!-- <a href="./pages/register.html"><button type="button">Sign Up</button></a> -->
+
+                    <div class="top-cards">
+                         <!-- ----Follower--- -->
+                         <div class="card-1">
+                              <div class="card-count"><span class="count">126</span></div>
+                              <div class="card-name">
+                                   <h3 class="top-h3">Followers</h3>
+                              </div>
+                         </div>
+
+                         <!-- ----Following---- -->
+                         <div class="card-2">
+                              <div class="card-count"><span class="count">126</span></div>
+                              <div class="card-name">
+                                   <h3 class="top-h3">Following</h3>
+                              </div>
+                         </div>
+
+
+                         <!-- --------Resources------ -->
+                         <div class="card-3">
+                              <div class="card-count"><span class="count">126</span></div>
+                              <div class="card-name">
+                                   <h3 class="top-h3">Resources</h3>
+                              </div>
+                         </div>
+
+                    </div>
+               </div>
+
+               <!-- all Items -->
+               <!-- In this user can all his items. -->
+
+               <div class="items-section" ng-controller="searchitems">
+                    <!-- Filter to search items -->
+                    <div class="itm-filter">
+                         <input type="text" placeholder="Search Resources..." ng-model="search">
+                         <select name="sort" id="sort">
+                              <option value="recent" selected>Recent</option>
+                              <option value="popular">Popular</option>
+                         </select>
+                    </div>
+
+                    <!-- Display all items -->
+                    <div class="all-itms">
+                         <!-- item card -->
+                         <div class="itm-card" ng-repeat="item in templetes | filter : search">
+                              <!-- display card image. -->
+                              <div class="itm-img">
+                                   <img src={{item.path}} alt={{item.name}} onclick="view_box()">
+                              </div>
+                              <div class="itm-detail">
+                                   <h2>{{item.name}}</h2>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <!-- this container content a profile of a user and its details
+          here he/she can manage the information and resources -->
+          <div class="right-container">
+               <!-- ----------user profile image and name -->
+               <div class="user-section">
+                    <div class="container">
+                         <div class="avatar-upload">
+                              <div class="avatar-edit">
+                                   <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                   <label for="imageUpload"></label>
+                              </div>
+                              <div class="avatar-preview">
+                                   <div id="imagePreview"
+                                        style="background-image: url(../images/person-1.png);">
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="user-name">
+                         <h2><span>Faizal Kadiwal</span></h2>
+                         <h4><a href="#"> @thewebdev</a></h4>
+                    </div>
+               </div>
+
+               <!-- ----user information------------ -->
+               <div class="recent-follow" ng-controller="searchitems">
+                    <div class="title">Recent Follower</div>
+                    <hr>
+                    <div class="follower-list">
+                         <div class="follower-detail" ng-repeat="item in recent_follow">
+                              <img src="../images/person-1.png" alt="{{item.user_id}}">
+                              <h5><a href="#">{{item.user_name}}</a> Starting following you</h5>
+                         </div>
+                    </div>
+               </div>
+
+               </div>
+          </div>
+
+          <!-- post-viewer -->
+          <!-- onclick it pop up and give post details -->
+          <div class="view-wrapper close" ng-controller="viewController">
+               <div class="inner-wrapper">
+                    <div class="image">
+                         <img src= alt="">
+                         <h2></h2>
+                         <h3><i></i></h3>
+                         <h4></h4>
+                    </div>
+                    <div class="post-detail">
+                         <div class="likes">
+                              <i class="bx bx-heart icon"></i>
+                              <h3></h3>
+                         </div>
+                         <div class="downloads">
+                              <i class="bx bx-download icon"></i>
+                              <h3></h3>
+                         </div>
+                         <div class="shares">
+                              <i class="bx bx-share-alt icon"></i>
+                              <h3></h3>
+                         </div>
+                         <div class="comment">
+                              <i class="bx bx-comment icon"></i>
+                              <h3></h3>
+                         </div>
+                    </div>
+                    <div class="preview">
+                         <button class="preview-btn">Preview</button>
+                    </div>
+                    <div class="close">
+                         <img src="../images/pngs/back-2png" alt="<">
+                    </div>
+               </div>
+          </div>
+
+     </section>
+
+     <script src="{% static 'script/sidebar.js' %}"></script>
+     <script src="{% static 'script/dashboard.js' %}"></script>
+     <script src="{% static 'script/setandsrchdata.js' %}"></script>
+
+</body>
+
+</html>
