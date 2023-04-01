@@ -1,6 +1,4 @@
-{% extends 'users/base.html' %}
-{% load static %} 
-{% block style %}
+{% extends 'users/base.html' %} {% load static %} {% block style %}
 <link rel="stylesheet" href="{% static 'style/web_scrapper.css' %}" />
 {% endblock style %} {% block content %}
 
@@ -8,9 +6,11 @@
   <div class="tool-wrapper">
     <div class="tool-details">
       <h1>Web Scrapper</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatum
-        excepturi repudiandae vitae ducimus alias dicta, obcaecati a optio ipsa.
+      <p style="color: black">
+        This python script focuses on retreving all the webpages links from a
+        giver Url. The link can also be present inside a button or an action.
+        Libraries needed are SSL, urllib and BeautifulSoup. The program access
+        the website and returns all the links present in the website.
       </p>
     </div>
     <form class="tool-inputs" method="POST">
@@ -21,26 +21,30 @@
         placeholder="Web URL : www.example.com"
         name="url_input"
       />
-      <button type="submit">FIRE</button>
+      {% if user.is_authenticated %}
+        <button type="submit">FIRE</button>
+      {% else %}
+        <button type="button"><a href="{% url 'login' %}">FIRE</a></button>
+      {% endif %}
     </form>
 
     {% if result is None %}
     <p>run it</p>
     {% else %}
-      <div id="tool-output">
-        <table id="output-table">
-          <thead>
-            <tr>
-              <th>Links</th>
-            </tr>
-          </thead>
-          {% for item in result %}
+    <div id="tool-output">
+      <table id="output-table">
+        <thead>
           <tr>
-            <td>{{ item }}</td>
+            <th>Links</th>
           </tr>
-          {% endfor %}
-        </table>
-      </div>
+        </thead>
+        {% for item in result %}
+        <tr>
+          <td>{{ item }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
     {% endif %}
   </div>
 </section>

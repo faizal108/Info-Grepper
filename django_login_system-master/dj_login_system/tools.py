@@ -1,8 +1,11 @@
+import sys
+import requests
 from django.http import HttpResponse
 from django.shortcuts import render
 import ssl
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
+
 
 def web_scrapper(request):
     ctx = ssl.create_default_context()
@@ -32,3 +35,19 @@ def web_scrapper(request):
     except Exception as e:
         print(str(e))
     return render(request, "tools/web_scrapper.html", {"result": finalLinks})
+
+
+def ipgeo(request):
+    url = "http://ip-api.com/json/"
+    # if len(sys.argv) > 1:
+    #     # getting address from command line.
+    #     address = ''.join(sys.argv[1:])
+    #     url += address
+    target_url = request.POST.get('url_input')
+    if(target_url):
+        url+=target_url
+    response = requests.request("GET", url)
+    response = response.json()
+
+    return render(request, "tools/ipgeo.html", {"results": response})
+

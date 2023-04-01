@@ -52,6 +52,13 @@
               </a>
               {% endif %}
             </li>
+            {% if user.is_authenticated %}
+            <li class="nav_menu_item">
+              <a href="{% url 'logout' %}">
+                <button class="btn">Logout</button>
+              </a>
+            </li>
+            {%endif%}
           </ul>
         </div>
 
