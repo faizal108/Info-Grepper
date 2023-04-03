@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from users import views as user_views
+from users import dashboard
 from django.contrib.auth import views as auth_views
 
 from users.forms import CustomPasswordResetForm
@@ -24,7 +25,12 @@ from . import tools
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', user_views.home, name='home'),
+
     path('dashboard/', user_views.dashboard, name='dashboard'),
+    path('dashboard/home', user_views.home, name='dash-home'),
+    path('dashboard/profile', dashboard.profile, name='profile'),
+
+
     path('tools/', user_views.tools, name='alltools'),
     path('signup/', user_views.signup, name='signup'),
     path('login/', auth_views.LoginView.as_view(template_name="users/login.html"), name='login'),
@@ -32,8 +38,10 @@ urlpatterns = [
     path('web_scrapper/',tools.web_scrapper, name='WebScrapper'),
     path('ipgeo/',tools.ipgeo, name='IPGeo'),
     
+    # for downloading a file
+    path('ipgeo/download/', tools.ipgeo_download, name='ipgeo_download'),
     
-    
+    # for reseting password
     path('reset_password/', auth_views.PasswordResetView.as_view(
         template_name="users/password_reset.html",
         form_class=CustomPasswordResetForm
