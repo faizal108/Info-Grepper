@@ -29,8 +29,8 @@
       {% endif %}
     </form>
 
-    {% if result is None %}
-    <p>run it</p>
+    {% if not result %}
+    <p></p>
     {% else %}
     <div id="tool-output">
       <table id="output-table">

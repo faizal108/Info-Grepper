@@ -1,3 +1,4 @@
+import json
 import sys
 import requests
 from django.http import HttpResponse
@@ -39,15 +40,31 @@ def web_scrapper(request):
 
 def ipgeo(request):
     url = "http://ip-api.com/json/"
-    # if len(sys.argv) > 1:
-    #     # getting address from command line.
-    #     address = ''.join(sys.argv[1:])
-    #     url += address
     target_url = request.POST.get('url_input')
-    if(target_url):
-        url+=target_url
+    if (target_url):
+        url += target_url
     response = requests.request("GET", url)
     response = response.json()
 
+    # Write the JSON data to a file
+    filename = 'ipgeo.json'
+    with open(filename, 'w') as f:
+        json.dump(response, f)
+
     return render(request, "tools/ipgeo.html", {"results": response})
 
+def ipgeo_download(request):
+    # Load the JSON data from the file
+    with open('ipgeo.json', 'r') as f:
+        data = json.load(f)
+
+    # Call the download_json function with the JSON data and filename
+    filename = 'ipgeo.json'
+    return download_json(data, filename)
+
+
+def download_json(data, filename):
+    # Create a response object with the file content and headers
+    response = HttpResponse(json.dumps(data, indent=4), content_type='application/json')
+    response['Content-Disposition'] = f'attachment; filename="{filename}"'
+    return response
