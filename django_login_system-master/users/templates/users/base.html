@@ -36,7 +36,7 @@
             </li>
             <li class="nav_menu_item">
               {% if user.is_authenticated %}
-              <a class="nav_menu_link">
+              <a class="nav_menu_link" href="{% url 'dashboard' %}">
                 <div class="profile" title="Open Dashboard">
                   <div class="user_name"><span>{{ user.username }}</span></div>
                   <div class="profile_img">

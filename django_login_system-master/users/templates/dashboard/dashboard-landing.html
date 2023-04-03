@@ -1,0 +1,106 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block content %}
+<div class="center-container">
+  <div class="top-container">
+    <div class="dashboard-header">
+      <h1>
+        <span class="greeting">Good Morning </span
+        ><span class="user-name">{{ user.username }}</span>
+      </h1>
+      <h4>Here you can manage your account and resources</h4>
+    </div>
+    <!-- <a href="./pages/register.html"><button type="button">Sign Up</button></a> -->
+
+    <div class="top-cards">
+      <!-- ----Follower--- -->
+      <div class="card-1">
+        <div class="card-count"><span class="count">126</span></div>
+        <div class="card-name">
+          <h3 class="top-h3">Followers</h3>
+        </div>
+      </div>
+
+      <!-- ----Following---- -->
+      <div class="card-2">
+        <div class="card-count"><span class="count">126</span></div>
+        <div class="card-name">
+          <h3 class="top-h3">Following</h3>
+        </div>
+      </div>
+
+      <!-- --------Resources------ -->
+      <div class="card-3">
+        <div class="card-count"><span class="count">126</span></div>
+        <div class="card-name">
+          <h3 class="top-h3">Resources</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- all Items -->
+  <!-- In this user can all his items. -->
+
+  <div class="items-section" ng-controller="searchitems">
+    <!-- Filter to search items -->
+    <div class="itm-filter">
+      <input type="text" placeholder="Search Resources..." ng-model="search" />
+      <select name="sort" id="sort">
+        <option value="recent" selected>Recent</option>
+        <option value="popular">Popular</option>
+      </select>
+    </div>
+
+    <!-- Display all items -->
+    <div class="all-itms">
+      <!-- item card -->
+      <div class="itm-card" ng-repeat="item in templetes | filter : search">
+        <!-- display card image. -->
+        <div class="itm-img">
+          <img src="{{item.path}}" alt="{{item.name}}" onclick="view_box()" />
+        </div>
+        <div class="itm-detail">
+          <h2>{{item.name}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="right-container">
+  <!-- ----------user profile image and name -->
+  <div class="user-section">
+    <div class="container">
+      <div class="avatar-upload">
+        <div class="avatar-edit">
+          <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
+          <label for="imageUpload"></label>
+        </div>
+        <div class="avatar-preview">
+          <div
+            id="imagePreview"
+            style="background-image: url(../images/person-1.png)"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div class="user-name">
+      <h2><span>Faizal Kadiwal</span></h2>
+      <h4><a href="#"> @thewebdev</a></h4>
+    </div>
+  </div>
+
+  <!-- ----user information------------ -->
+  <div class="recent-follow" ng-controller="searchitems">
+    <div class="title">Recent Follower</div>
+    <hr />
+    <div class="follower-list">
+      <div class="follower-detail" ng-repeat="item in recent_follow">
+        <img src="../images/person-1.png" alt="{{item.user_id}}" />
+        <h5><a href="#">{{item.user_name}}</a> Starting following you</h5>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
