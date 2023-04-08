@@ -10,7 +10,14 @@ def home(request):
     return render(request, 'users/landing_page.html')
 
 def tools(request):
-    return render(request, 'users/tools.html')
+    tools = Tool.objects.all()
+    if request.method == 'POST':
+        tool_id = request.POST.get('tool_id')
+        tool = Tool.objects.get(id=tool_id)
+        tool.is_favorite = not tool.is_favorite
+        tool.save()
+        return redirect('all_tools')
+    return render(request, 'users/tools.html', {'tools': tools})
 
 def dashboard(request):
     return render(request, 'dashboard/dashboard-landing.html')
@@ -34,9 +41,9 @@ def signup(request):
     context = { 'form': form }
     return render(request, 'users/signup.html', context)
 
-def all_tools(request):
-    tools = Tool.objects.all()
-    return render(request, 'tools/all_tools.html', {'tools': tools})
+# def all_tools(request):
+#     tools = Tool.objects.all()
+#     return render(request, 'tools/all_tools.html', {'tools': tools})
 
 
 # @login_required

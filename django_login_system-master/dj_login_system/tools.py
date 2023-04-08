@@ -7,6 +7,11 @@ import ssl
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 
+from users.models import Tool
+
+def all_tools(request):
+    tools = Tool.objects.all()
+    return render(request, 'tools/all_tools.html', {'tools': tools})
 
 def web_scrapper(request):
     ctx = ssl.create_default_context()

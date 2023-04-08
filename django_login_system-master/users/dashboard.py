@@ -2,7 +2,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from .forms import UserUpdateForm
+from .forms import ToolForm, UserUpdateForm
 from django.contrib import messages
 from django.contrib.auth.forms import PasswordChangeForm
 
@@ -42,6 +42,17 @@ def profile(request):
         'user_form': user_form,
         'password_form': password_form,
     })
+
+def add_tool(request):
+    if request.method == 'POST':
+        form = ToolForm(request.POST)
+        if form.is_valid():
+            tool = form.save(commit=False)
+            tool.save()
+            return redirect('alltools')
+    else:
+        form = ToolForm()
+    return render(request, 'dashboard/add_tool.html', {'form': form})
 
 
 # @login_required

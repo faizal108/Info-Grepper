@@ -30,6 +30,7 @@ urlpatterns = [
     path('dashboard/', user_views.dashboard, name='dashboard'),
     path('dashboard/home', user_views.home, name='dash-home'),
     path('dashboard/profile', dashboard.profile, name='profile'),
+    path('dashboard/add_tool', dashboard.add_tool, name='add_tool'),
 
     # landing page navigations
     path('tools/', user_views.tools, name='alltools'),

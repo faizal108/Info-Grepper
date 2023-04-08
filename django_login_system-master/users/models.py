@@ -27,4 +27,5 @@ class Tool(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     url = models.URLField()
+    is_favorite = models.BooleanField(default=False)
 

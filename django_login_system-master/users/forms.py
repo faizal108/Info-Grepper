@@ -1,4 +1,4 @@
-from .models import Profile
+from .models import Profile, Tool
 from django import forms
 from django.contrib.auth.forms import PasswordResetForm
 from django import forms
@@ -48,3 +48,8 @@ class UserUpdateForm(forms.ModelForm):
 
 class CustomPasswordResetForm(PasswordResetForm):
     email = forms.EmailField(label='Email', max_length=254)
+
+class ToolForm(forms.ModelForm):
+    class Meta:
+        model = Tool
+        fields = ['name', 'description', 'url', 'is_favorite']

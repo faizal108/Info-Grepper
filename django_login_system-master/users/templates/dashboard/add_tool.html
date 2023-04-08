@@ -1,0 +1,50 @@
+
+{% extends 'dashboard/dashboard.html' %} 
+{% load static%} 
+{% block style %}
+<link rel="stylesheet" href="{% static 'style/dash-profile.css' %}" />
+{% endblock style %}
+ {% block content %}
+<h1>Add Tool</h1>
+<form action="{% url 'add_tool'%}" method="POST">
+  {% csrf_token %} 
+  {{ form.as_p }}
+  <input type="submit" value="Submit" />
+  <!-- <label for="name">Name:</label><br>
+	<input type="text" id="name" name="name"><br>
+	<label for="description">Description:</label><br>
+	<textarea id="description" name="description"></textarea><br>
+	<label for="url">URL:</label><br>
+	<input type="url" id="url" name="url"><br>
+	<label for="is_favorite">Is Favorite:</label>
+	<input type="checkbox" id="is_favorite" name="is_favorite"><br>
+	<input type="submit" value="Submit"> -->
+</form>
+{% endblock %}
+
+
+
+<!-- <!DOCTYPE html>
+{% load static %}
+
+<html>
+  <head>
+    <title>Add Tool</title>
+  </head>
+  <body>
+    <h1>Add Tool</h1>
+    <form action="{% url 'add_tool'%}" method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="submit" value="Submit" />
+      <label for="name">Name:</label><br>
+		<input type="text" id="name" name="name"><br>
+		<label for="description">Description:</label><br>
+		<textarea id="description" name="description"></textarea><br>
+		<label for="url">URL:</label><br>
+		<input type="url" id="url" name="url"><br>
+		<label for="is_favorite">Is Favorite:</label>
+		<input type="checkbox" id="is_favorite" name="is_favorite"><br>
+		<input type="submit" value="Submit">
+    </form>
+  </body>
+</html> -->
