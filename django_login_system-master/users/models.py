@@ -22,3 +22,9 @@ class Profile(models.Model):
             instance.profile.save()
         except ObjectDoesNotExist:
             Profile.objects.create(user=instance)
+
+class Tool(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    url = models.URLField()
+

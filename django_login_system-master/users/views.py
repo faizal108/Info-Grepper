@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignupForm
+from .models import Tool
 
 
 def home(request):
@@ -32,6 +33,10 @@ def signup(request):
         
     context = { 'form': form }
     return render(request, 'users/signup.html', context)
+
+def all_tools(request):
+    tools = Tool.objects.all()
+    return render(request, 'tools/all_tools.html', {'tools': tools})
 
 
 # @login_required

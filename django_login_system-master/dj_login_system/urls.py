@@ -26,11 +26,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', user_views.home, name='home'),
 
+    # Dashboard urls
     path('dashboard/', user_views.dashboard, name='dashboard'),
     path('dashboard/home', user_views.home, name='dash-home'),
     path('dashboard/profile', dashboard.profile, name='profile'),
 
-
+    # landing page navigations
     path('tools/', user_views.tools, name='alltools'),
     path('signup/', user_views.signup, name='signup'),
     path('login/', auth_views.LoginView.as_view(template_name="users/login.html"), name='login'),
@@ -40,6 +41,7 @@ urlpatterns = [
     
     # for downloading a file
     path('ipgeo/download/', tools.ipgeo_download, name='ipgeo_download'),
+    path('web_scrapper/download/', tools.webscrap_download, name='webscrap_download'),
     
     # for reseting password
     path('reset_password/', auth_views.PasswordResetView.as_view(

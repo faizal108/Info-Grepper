@@ -63,6 +63,7 @@ body {
 }
 
 .card {
+  position: relative;
   padding: 20px;
   width: 500px;
   min-height: 200px;
@@ -74,6 +75,21 @@ body {
   background-color: var(--card-primary);
 }
 
+#fav-btn{
+  position: absolute;
+  width: 2.6rem;
+  height: 2.6rem;
+  top: 0;
+  right: 0;
+  background-color: var(--card-primary);
+  border-bottom-left-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#fav-btn i{
+  font-size: 1.7rem;
+}
 .card:hover {
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
   transform: scale(1.01);

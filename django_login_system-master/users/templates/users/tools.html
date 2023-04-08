@@ -20,6 +20,11 @@
     </div>
     <div class="cards">
         <div class="card card-1">
+            {% if user.is_authenticated %}
+            <div id="fav-btn">
+                <a href="{% url 'ipgeo_download' %}" ><i class='bx bx-heart'></i></a>  
+            </div>
+            {%endif%}
             <div class="card_icon">WebURL Scraper</div>
             <h2 class="card_title">
                 This python script focuses on retreving all the webpages links from a given Url. The program access the website and returns all the links present in the website.
@@ -76,3 +81,6 @@
 
 {% endblock content %}
 
+{% block script %}
+<script src="{% static 'script/tools.js' %}"></script>
+{% endblock script %}

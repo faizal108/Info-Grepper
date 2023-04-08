@@ -33,10 +33,9 @@
             <tr>
               <th>Keys</th>
               <th>Values</th>
-            </tr>
-            <tr>
-              <td>File</td>
-              <td><a href="{% url 'ipgeo_download' %}">Download JSON</a></td>
+              <th style="background-color: #ffffff;"><div id="output-file">
+                <a href="{% url 'ipgeo_download' %}" ><i class='bx bxs-download'></i></a>
+              </div></th>
             </tr>
           </thead>
           {% for key,value in results.items %}
@@ -52,3 +51,9 @@
 </section>
 
 {% endblock content %}
+
+
+<!-- <tr>
+  <td>File</td>
+  <td><a href="{% url 'ipgeo_download' %}">Download JSON</a></td>
+</tr> -->

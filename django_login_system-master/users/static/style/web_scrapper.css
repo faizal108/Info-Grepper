@@ -144,3 +144,22 @@ button:hover {
 #output-table tr:hover {
   background-color: #ddd;
 }
+
+#output-file{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #ffffff;
+}
+#output-file a{
+  border: 2px solid green;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#output-file i{
+  font-size: 1.5rem;
+  color: green;
+}

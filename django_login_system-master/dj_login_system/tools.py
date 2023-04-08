@@ -33,6 +33,12 @@ def web_scrapper(request):
                     index1 = templist[-1].index("\"")
                     index2 = templist[-1][index1 + 1:].index("\"")
                     finalLinks.append(templist[-1][index1: index2 + 3])
+
+        # Write the JSON data to a file
+        filename = 'web_scrapper.json'
+        with open(filename, 'w') as f:
+            json.dump(finalLinks, f)
+
     except Exception as e:
         print(str(e))
     return render(request, "tools/web_scrapper.html", {"result": finalLinks})
@@ -53,13 +59,24 @@ def ipgeo(request):
 
     return render(request, "tools/ipgeo.html", {"results": response})
 
+
+
+
+# Download Manager for all tools
 def ipgeo_download(request):
     # Load the JSON data from the file
     with open('ipgeo.json', 'r') as f:
         data = json.load(f)
 
-    # Call the download_json function with the JSON data and filename
     filename = 'ipgeo.json'
+    return download_json(data, filename)
+
+def webscrap_download(request):
+    # Load the JSON data from the file
+    with open('web_scrapper.json', 'r') as f:
+        data = json.load(f)
+
+    filename = 'web_scrapper.json'
     return download_json(data, filename)
 
 
