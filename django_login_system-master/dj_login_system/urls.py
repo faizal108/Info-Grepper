@@ -31,6 +31,7 @@ urlpatterns = [
     path('dashboard/home', user_views.home, name='dash-home'),
     path('dashboard/profile', dashboard.profile, name='profile'),
     path('dashboard/add_tool', dashboard.add_tool, name='add_tool'),
+    path('dashboard/favorite', dashboard.favorite_tools, name='favtools'),
 
     # Tools Control
     path('tools/fav',tools.fav_tool, name='addfav'),

@@ -2,6 +2,8 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+
+from users.models import Tool
 from .forms import ToolForm, UserUpdateForm
 from django.contrib import messages
 from django.contrib.auth.forms import PasswordChangeForm
@@ -54,7 +56,9 @@ def add_tool(request):
         form = ToolForm()
     return render(request, 'dashboard/add_tool.html', {'form': form})
 
-
+def favorite_tools(request):
+    favorite_tools = Tool.objects.filter(is_favorite=True)
+    return render(request, 'dashboard/favorite_tools.html', {'favorite_tools': favorite_tools})
 # @login_required
 # def profile(request):
 #     if request.method == 'POST':

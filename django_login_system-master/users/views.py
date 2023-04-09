@@ -19,7 +19,11 @@ def tools(request):
     return render(request, 'users/tools.html', context)
 
 def dashboard(request):
-    return render(request, 'dashboard/dashboard-landing.html')
+    favorite_tools = Tool.objects.filter(is_favorite=True)
+    context = {
+        'favorite_tools': favorite_tools,
+    }
+    return render(request, 'dashboard/dashboard-landing.html',context)
 
 def signup(request):
     if request.method == 'POST':
