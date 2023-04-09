@@ -1,0 +1,66 @@
+{% extends 'users/base.html' %} {% load static %} {% block style %}
+
+<link rel="stylesheet" href="{% static 'style/tools.css' %}" />
+<title>All Tools</title>
+
+{% endblock style %} {% block content %}
+
+<div class="main-container">
+  <!-- <div class="heading">
+    <h1 class="heading_title">Info Grepper Toolkit</h1>
+    <p class="heading_credits">
+      <a class="heading_link">Streamline data gathering with our comprehensive suite of tools.</a>
+    </p>
+  </div> -->
+
+  {% if favorite_tools %}
+  <div class="fav-title">
+    <h1>Favorite Tools</h1>
+  </div>
+  <div class="cards fav-tools">
+    {% for tool in favorite_tools %}
+    <div class="card">
+      <div class="card_icon">{{ tool.name }}</div>
+      <h2 class="card_title">{{ tool.description }}</h2>
+      <p class="card_apply">
+        <a class="card_link" href="{{ tool.url }}">GO</a>
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="fav-title" style="margin-top: 2rem;">
+    <h1>All Tools</h1>
+  </div>
+  <div class="cards">
+    {% for tool in tools %}
+    <div class="card">
+      <form action="{% url 'addfav' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="tool_id" value="{{ tool.id }}" />
+        {% if user.is_authenticated %}
+        <div id="fav-btn">
+          <button type="submit" class="favorite-btn">
+            {% if tool.is_favorite %}
+            <i class="bx bxs-heart"></i>
+            {% else %}
+            <i class="bx bx-heart"></i>
+            {% endif %}
+          </button>
+        </div>
+        {% endif %}
+      </form>
+      <div class="card_icon">{{ tool.name }}</div>
+      <h2 class="card_title">{{ tool.description }}</h2>
+      <p class="card_apply">
+        <a class="card_link" href="{{ tool.url }}">GO</a>
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %} {% block script %}
+<script src="{% static 'script/tools.js' %}"></script>
+{% endblock script %}
