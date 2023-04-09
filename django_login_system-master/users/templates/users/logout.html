@@ -1,0 +1,11 @@
+{% extends 'users/base.html' %} {% load static%} {% block style %}
+<link rel="stylesheet" href="{% static 'style/signup.css' %}" />
+{% endblock style %}
+ {% block content %}
+<section>
+  <div class="heading">
+    <h3 style="text-align: center">Logout Successfully!!</h3>
+  </div>
+  <a href="{% url 'home' %}"><button type="button">Go Back Home</button></a>
+</section>
+{% endblock content %}

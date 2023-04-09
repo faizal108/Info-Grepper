@@ -1,0 +1,109 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block style %}
+
+  <!-- ====  REMIXICON CDN ==== -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- ==== ANIMATE ON SCROLL CSS CDN  ==== -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- =====Style link===== -->
+  <link rel="stylesheet" href="{% static 'style/landing.css' %}">
+  <title>Home</title>
+{% endblock style %}
+
+
+{% block content %}
+
+<section class="wrapper">
+  <div class="container">
+    <div class="grid-cols-2">
+      <div class="grid-item-1">
+        <h1 class="main-heading">
+          Welcome to <span>InfoGrepper.</span>
+          <br />
+          Discover Insights.
+        </h1>
+        <p class="info-text">
+          Uncover valuable insights with InfoGrepper's ethical hacking
+          research platform.
+        </p>
+
+        <div class="btn_wrapper">
+          <a class="btn view_more_btn" href="{% url 'alltools'%}">
+            view all tools <i class="ri-arrow-right-line"></i>
+          </a>
+
+          <button class="btn documentation_btn">documentation</button>
+        </div>
+      </div>
+      <div class="grid-item-2">
+        <div class="team_img_wrapper">
+          <img src="{% static 'images/team.svg' %}" alt="team-img" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrapper">
+  <div class="container">
+    <div class="grid-cols-3">
+      <div class="grid-col-item">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <div class="featured_info">
+          <span>Streamlined Security Testing</span>
+          <p>
+            Improve the efficiency and accuracy of your security testing with InfoGrepper's platform, providing you
+            with the latest ethical hacking and pen-testing tools to identify and remediate potential vulnerabilities
+            in your system.
+          </p>
+        </div>
+      </div>
+      <div class="grid-col-item">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <div class="featured_info">
+          <span>Access Cutting-Edge Tools</span>
+          <p>
+            Gain access to the latest ethical hacking and pen-testing tools
+            with InfoGrepper's platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-col-item">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        </div>
+        <div class="featured_info">
+          <span>Documentation For Tools</span>
+          <p>
+            Access comprehensive documentation for all of InfoGrepper's
+            tools and features to optimize your research process.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
+
+{% block script %}
+
+<script src="{% static 'script/landing.js' %}"></script>
+{% endblock script %}
