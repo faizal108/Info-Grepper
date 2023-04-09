@@ -19,6 +19,7 @@ def fav_tool(request):
         return redirect('alltools')
     return render(request, 'tools/tools.html', {'tools': tools})
 
+
 def web_scrapper(request):
     ctx = ssl.create_default_context()
     ctx.check_hostname = False

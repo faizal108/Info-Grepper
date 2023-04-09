@@ -147,28 +147,14 @@ body {
   align-self: center;
 }
 
-/* CARD BACKGROUNDS */
-
-/* .card-1 {
-  background: radial-gradient(#1fe4f5, #3fbafe);
+.fav-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.card-2 {
-  background: radial-gradient(#fbc1cc, #fa99b2);
+.fav-title h1{
+  font-size: 1.5rem;
 }
-
-.card-3 {
-  background: radial-gradient(#76b2fe, #b69efe);
-}
-
-.card-4 {
-  background: radial-gradient(#60efbc, #58d5c9);
-}
-
-.card-5 {
-  background: radial-gradient(#f588d8, #c0a3e5);
-} */
-
 /* RESPONSIVE */
 
 @media (max-width: 1600px) {

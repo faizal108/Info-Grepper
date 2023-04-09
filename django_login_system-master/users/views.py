@@ -11,7 +11,12 @@ def home(request):
 
 def tools(request):
     tools = Tool.objects.all()
-    return render(request, 'users/tools.html', {'tools': tools})
+    favorite_tools = Tool.objects.filter(is_favorite=True)
+    context = {
+        'tools': tools,
+        'favorite_tools': favorite_tools,
+    }
+    return render(request, 'users/tools.html', context)
 
 def dashboard(request):
     return render(request, 'dashboard/dashboard-landing.html')

@@ -56,13 +56,6 @@
                                    <span class="text nav-text">Profile</span>
                               </a>
                          </li>
-                         <!-- <hr> -->
-                         <!-- <li class="nav-link">
-                              <a href="#">
-                                   <i class='bx bx-bar-chart-alt-2 icon'></i>
-                                   <span class="text nav-text">Revenue</span>
-                              </a>
-                         </li> -->
 
                          <li class="nav-link">
                               <a href="#">
@@ -70,8 +63,15 @@
                                    <span class="text nav-text">Saved</span>
                               </a>
                          </li> 
-
-
+                         <!-- this option only for admin user or staff user -->
+                         {% if user.is_authenticated and user.is_staff %}
+                         <li class="nav-link">
+                              <a href="{% url 'add_tool' %}">
+                                   <i class='bx bx-plus icon'></i>
+                                   <span class="text nav-text">Add Tool</span>
+                              </a>
+                         </li>
+                         {% endif %}
                          <li class="nav-link">
                               <a href="#">
                                    <i class='bx bx-heart icon'></i>
@@ -85,14 +85,6 @@
                                    <span class="text nav-text" >Logout</span>
                               </a>
                          </li>
-                         <!-- <hr> -->
-                         <!-- <li class="nav-link">
-                              <a href="#">
-                                   <i class='bx bx-wallet icon'></i>
-                                   <span class="text nav-text">Wallets</span>
-                              </a>
-                         </li> -->
-
                     </ul>
                </div>
 
