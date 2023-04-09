@@ -1,25 +1,21 @@
-{% extends 'users/base.html' %}
+{% extends 'users/base.html' %} {% load static %} {% block style %}
 
-{% load static %}
+<link rel="stylesheet" href="{% static 'style/tools.css' %}" />
+<title>All Tools</title>
 
-{% block style %}
-
-  <link rel="stylesheet" href="{% static 'style/tools.css' %}">
-  <title>All Tools</title>
-
-{% endblock style %}
-
-{% block content %} 
+{% endblock style %} {% block content %}
 
 <div class="main-container">
-    <div class="heading">
-        <h1 class="heading_title">Info Grepper Toolkit</h1>
-        <p class="heading_credits">
-            <a class="heading_link">Streamline data gathering with our comprehensive suite of tools.</a>
-        </p>
-    </div>
-    <div class="cards">
-        <!-- <div class="card card-1">
+  <div class="heading">
+    <h1 class="heading_title">Info Grepper Toolkit</h1>
+    <p class="heading_credits">
+      <a class="heading_link"
+        >Streamline data gathering with our comprehensive suite of tools.</a
+      >
+    </p>
+  </div>
+  <div class="cards">
+    <!-- <div class="card card-1">
             {% if user.is_authenticated %}
             <div id="fav-btn">
                 <a href="{% url 'ipgeo_download' %}" ><i class='bx bx-heart'></i></a>  
@@ -33,7 +29,7 @@
                 <a class="card_link" href="{% url 'WebScrapper' %}">GO</a>
             </p>
         </div> -->
-        <!-- <div class="card card-2">
+    <!-- <div class="card card-2">
             <div class="card_icon">IPGeo</div>
             <h2 class="card_title">
                 This is used to find details of the provided input. Input supports domain-name, IPV4 & IPV6.
@@ -42,20 +38,33 @@
                 <a class="card_link" href="{% url 'IPGeo' %}">GO</a>
             </p>
         </div> -->
-        {% for tool in tools %}
-        <div class="card">
-            <div class="card_icon">{{ tool.name }}</div>
-            <h2 class="card_title">{{ tool.description }}</h2>
-            <p class="card_apply">
-                <a class="card_link" href="{{ tool.url }}">GO</a>
-            </p>
+    {% for tool in tools %}
+    <div class="card">
+      <form action="{% url 'addfav' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="tool_id" value="{{ tool.id }}" />
+        {% if user.is_authenticated %}
+        <div id="fav-btn">
+          <button type="submit" class="favorite-btn">
+            {% if tool.is_favorite %}
+            <i class="bx bxs-heart"></i>
+            {% else %}
+            <i class="bx bx-heart"></i>
+            {% endif %}
+          </button>
         </div>
-        {% endfor %}
+        {% endif %}
+      </form>
+      <div class="card_icon">{{ tool.name }}</div>
+      <h2 class="card_title">{{ tool.description }}</h2>
+      <p class="card_apply">
+        <a class="card_link" href="{{ tool.url }}">GO</a>
+      </p>
     </div>
+    {% endfor %}
+  </div>
 </div>
 
-{% endblock content %}
-
-{% block script %}
+{% endblock content %} {% block script %}
 <script src="{% static 'script/tools.js' %}"></script>
 {% endblock script %}

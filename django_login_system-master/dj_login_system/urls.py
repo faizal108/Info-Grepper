@@ -32,6 +32,9 @@ urlpatterns = [
     path('dashboard/profile', dashboard.profile, name='profile'),
     path('dashboard/add_tool', dashboard.add_tool, name='add_tool'),
 
+    # Tools Control
+    path('tools/fav',tools.fav_tool, name='addfav'),
+
     # landing page navigations
     path('tools/', user_views.tools, name='alltools'),
     path('signup/', user_views.signup, name='signup'),

@@ -11,12 +11,6 @@ def home(request):
 
 def tools(request):
     tools = Tool.objects.all()
-    if request.method == 'POST':
-        tool_id = request.POST.get('tool_id')
-        tool = Tool.objects.get(id=tool_id)
-        tool.is_favorite = not tool.is_favorite
-        tool.save()
-        return redirect('all_tools')
     return render(request, 'users/tools.html', {'tools': tools})
 
 def dashboard(request):

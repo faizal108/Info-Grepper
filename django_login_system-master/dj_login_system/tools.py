@@ -2,16 +2,22 @@ import json
 import sys
 import requests
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 import ssl
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 
 from users.models import Tool
 
-def all_tools(request):
+def fav_tool(request):
     tools = Tool.objects.all()
-    return render(request, 'tools/all_tools.html', {'tools': tools})
+    if request.method == 'POST':
+        tool_id = request.POST.get('tool_id')
+        tool = Tool.objects.get(id=tool_id)
+        tool.is_favorite = not tool.is_favorite
+        tool.save()
+        return redirect('alltools')
+    return render(request, 'tools/tools.html', {'tools': tools})
 
 def web_scrapper(request):
     ctx = ssl.create_default_context()

@@ -79,10 +79,12 @@ body {
   position: absolute;
   width: 2.6rem;
   height: 2.6rem;
-  top: 0;
+  top: -15px;
   right: 0;
   background-color: var(--card-primary);
-  border-bottom-left-radius: 25px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,6 +135,7 @@ body {
 
 .card_title {
   grid-row: 3/4;
+  font-size: 1rem;
   font-weight: 400;
   border-bottom-right-radius: 50px;
   color: var(--link-color);
